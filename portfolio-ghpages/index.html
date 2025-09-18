@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="ru" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Velesevich Media Group — Продюсирование YouTube</title>
+  <meta name="description" content="Продюсирование YouTube-каналов: стратегия, продакшн, SEO и аналитика. Кейсы, услуги, цены и контакты.">
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    /* ====== Palette (DARK default) ====== */
+    :root{
+      --bg:#0b1220; --bg-2:#020617;
+      --text:#e5e7eb; --muted:#94a3b8;
+      --accent:#0ea5e9; --accent-2:#22d3ee;
+      --lime:#b3ff36; --ink:#001018;
+
+      --panel:#0f172a; --panel-2:#0b1320;
+      --card:#111827; --panel-grad:linear-gradient(180deg,#0a1222,#0a0f1a);
+      --chip-bg:#0b132a; --chip-border:#1f2937; --icon-bg:#091427;
+
+      --border:#1f2937; --shadow:0 10px 25px rgba(2,6,23,.35);
+      --header-bg:rgba(2,6,23,.75);
+    }
+    /* ====== Palette (LIGHT) ====== */
+    :root.light{
+      --bg:#f7fafc; --bg-2:#eef2f7;
+      --text:#0f172a; --muted:#475569;
+      --accent:#0ea5e9; --accent-2:#14b8a6;
+
+      --panel:#ffffff; --panel-2:#f7fafc;
+      --card:#ffffff; --panel-grad:linear-gradient(180deg,#ffffff,#f7fafc);
+      --chip-bg:#f1f5f9; --chip-border:#e2e8f0; --icon-bg:#eef2f7;
+
+      --border:#e2e8f0; --shadow:0 8px 20px rgba(15,23,42,.08);
+      --header-bg:rgba(255,255,255,.75);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,var(--bg),var(--bg-2));color:var(--text)}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    :where(a,button,[role="button"]):focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:10px}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+    .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+    .skip-link:focus{position:fixed;left:18px;top:12px;z-index:9999;width:auto;height:auto;background:var(--panel-2);color:var(--text);padding:10px 12px;border-radius:10px;border:1px solid var(--border)}
+
+    header{position:sticky;top:0;background:var(--header-bg);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);z-index:50}
+    nav[aria-label]{display:flex;align-items:center;gap:16px;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.2px}
+    .brand .logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;place-items:center;color:var(--ink);font-weight:900;box-shadow:var(--shadow)}
+
+    .links{display:flex;gap:14px;flex-wrap:wrap}
+    .links a{padding:10px 12px;border-radius:10px;color:var(--muted)}
+    .links a:hover,.links a[aria-current="page"]{background:var(--chip-bg);border:1px solid var(--chip-border);color:var(--text)}
+
+    .actions{display:flex;gap:10px}
+    .btn{padding:12px 16px;border-radius:12px;border:1px solid var(--border);background:var(--chip-bg);color:var(--text);cursor:pointer;display:inline-flex;align-items:center;gap:8px;font-weight:600}
+    .btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:var(--ink);border:none}
+    .btn.tg{background:#229ED9;border:none}
+    .btn.tg span{font-weight:700}
+
+    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;padding:48px 0}
+    .hero h1{font-size:clamp(28px,6vw,58px);line-height:1.05;margin:0 0 10px}
+    .hero p{color:var(--muted);font-size:18px}
+    .tag{display:inline-flex;gap:8px;align-items:center;background:var(--chip-bg);border:1px solid var(--chip-border);padding:8px 12px;border-radius:999px;color:var(--muted);font-weight:600}
+    .tag .dot{width:8px;height:8px;border-radius:999px;background:var(--accent)}
+    .photo{aspect-ratio:3/4;border-radius:24px;background:var(--chip-bg);border:1px solid var(--chip-border);box-shadow:var(--shadow);overflow:hidden}
+    .photo img{width:100%;height:100%;object-fit:cover;object-position:top}
+
+    section{padding:26px 0}
+    h2{font-size:28px;margin:0 0 18px}
+
+    .features{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;background:var(--panel-grad);border:1px solid var(--border);padding:22px;border-radius:18px}
+    .feature{display:grid;grid-template-columns:36px 1fr;gap:12px}
+    .icon{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:var(--icon-bg);border:1px solid var(--border)}
+    .icon svg{width:20px;height:20px}
+    .lime{color:var(--lime)}
+
+    .pills{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:12px}
+    .pill{display:inline-flex;align-items:center;gap:8px;background:var(--chip-bg);border:1px solid var(--chip-border);padding:8px 12px;border-radius:999px}
+
+    .card{background:var(--panel-grad);border:1px solid var(--border);border-radius:18px;padding:18px;box-shadow:var(--shadow)}
+    .card:hover{transform:translateY(-2px);transition:transform .2s}
+    footer{border-top:1px solid var(--border);padding:22px 0;color:var(--muted)}
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+    .reveal{animation:fadeUp .6s ease-out both}
+    @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}.reveal{animation:none}}
+
+    .floating-cta{position:fixed;right:18px;bottom:18px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:var(--ink);border-radius:999px;padding:12px 16px;box-shadow:var(--shadow);display:flex;gap:10px;align-items:center}
+
+    /* YouTube-like grid */
+    .yt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;background:var(--panel-grad);border:1px solid var(--border);padding:22px;border-radius:18px}
+    @media (min-width:900px){ .yt-grid{ grid-template-columns:repeat(3,1fr); } }
+    .yt-card{display:block;border-radius:14px;padding:10px;background:rgba(255,255,255,.02);border:1px solid var(--border);transition:transform .12s ease, box-shadow .12s ease}
+    :root.light .yt-card{background:#fff}
+    .yt-card:hover{transform:translateY(-2px);box-shadow:0 10px 20px rgba(0,0,0,.12)}
+    .yt-thumb{position:relative;border-radius:12px;overflow:hidden;aspect-ratio:16/9;background:var(--chip-bg)}
+    .yt-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .25s ease}
+    .yt-card:hover .yt-thumb img{transform:scale(1.03)}
+    .yt-duration{position:absolute;right:8px;bottom:8px;padding:2px 6px;border-radius:6px;background:rgba(0,0,0,.75);color:#fff;font-weight:700;font-size:12px}
+    .yt-title{margin:10px 0 6px;font-weight:700;line-height:1.25;font-size:16px;color:var(--text);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+    .yt-meta{color:var(--muted);font-size:14px}
+
+    /* ===== Stats bar ===== */
+    .stats{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:8px}
+    .stat{display:flex;gap:8px;align-items:center;background:var(--chip-bg);border:1px solid var(--chip-border);padding:8px 12px;border-radius:999px}
+    .stat b{font-weight:800}
+  </style>
+
+  <script>
+    (function(){
+      const saved = localStorage.getItem('theme');
+      const preferLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+      if(saved === 'light' || (!saved && preferLight)){ document.documentElement.classList.add('light'); }
+      document.documentElement.classList.remove('no-js');
+    })();
+    function setTheme(isLight){
+      const root = document.documentElement;
+      root.classList.toggle('light', isLight);
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+      const btn = document.getElementById('theme-toggle');
+      if(btn){ btn.setAttribute('aria-pressed', String(isLight)); }
+    }
+    function toggleTheme(){ setTheme(!document.documentElement.classList.contains('light')); }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+
+  <header>
+    <div class="container">
+      <nav class="nav" aria-label="Главная навигация">
+        <a class="brand" href="#top">
+          <span class="logo" aria-hidden="true">VM</span>
+          <span>Velesevich Media Group</span>
+        </a>
+        <div class="links" role="list">
+          <a href="#skills">Услуги</a>
+          <a href="#experience">Результаты</a>
+          <a href="#contact">Оставить заявку</a>
+        </div>
+        <div class="actions">
+          <button id="theme-toggle" class="btn" onclick="toggleTheme()" aria-pressed="false" aria-label="Переключить тему" title="Переключить тему">🌗 Тема</button>
+          <a class="btn primary" href="#contact">Связаться</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <!-- hero -->
+    <section id="hero" class="hero">
+      <div>
+        <span class="tag"><span class="dot" aria-hidden="true"></span> YouTube продюсирование под KPI</span>
+        <h1>Продюсирование Вашего <span style="color:var(--accent-2)">YouTube</span> канала: от стратегии до монетизации!</h1>
+        <p>От экспертов Velesevich Media Group.</p>
+        <div class="actions">
+          <a class="btn primary" href="#contact">Запросить аудит канала</a>
+          <a class="btn" href="#experience">Смотреть результаты</a>
+        </div>
+      </div>
+      <div class="photo" aria-hidden="true">
+        <img src="images/avatar.jpg" alt="Фото портфолио" loading="lazy">
+      </div>
+    </section>
+
+    <!-- услуги -->
+    <section id="skills">
+      <h2>Что вы получите от продюсирования с нами</h2>
+      <div class="features">
+        <div class="feature">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="lime"><path d="M3 7h18M3 12h18M3 17h10" stroke-width="2" stroke-linecap="round"/></svg></div>
+          <div><h3 style="margin:0 0 6px">Подбор актуальных тем</h3><p style="margin:0;color:var(--muted)">Анализ трендов и ниш. Темы, которые набирают миллионы просмотров.</p></div>
+        </div>
+        <div class="feature">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="lime"><path d="M4 5v14l12-7L4 5z" stroke-width="2" stroke-linejoin="round"/></svg></div>
+          <div><h3 style="margin:0 0 6px">Написание сценариев</h3><p style="margin:0;color:var(--muted)">Тезисные, яркие, удерживающие внимание до конца.</p></div>
+        </div>
+        <div class="feature">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="lime"><rect x="3" y="6" width="18" height="12" rx="2" stroke-width="2"/><path d="M7 10h10M7 14h6" stroke-width="2"/></svg></div>
+          <div><h3 style="margin:0 0 6px">Упаковка роликов</h3><p style="margin:0;color:var(--muted)">Кликабельные превью и заголовки. Обложки с CTR выше 10%.</p></div>
+        </div>
+        <div class="feature">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="lime"><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3" stroke-width="2" stroke-linecap="round"/></svg></div>
+          <div><h3 style="margin:0 0 6px">SEO-оптимизация</h3><p style="margin:0;color:var(--muted)">Описание, теги, ключевые слова. Попадание в ТОП поиска YouTube.</p></div>
+        </div>
+        <div class="feature">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="lime"><rect x="4" y="3" width="16" height="18" rx="2" stroke-width="2"/></svg></div>
+          <div><h3 style="margin:0 0 6px">ТЗ для монтажа</h3><p style="margin:0;color:var(--muted)">Подробные, понятные инструкции для идеального видео.</p></div>
+        </div>
+        <div class="feature">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="lime"><path d="M3 12a9 9 0 1 0 18 0A9 9 0 0 0 3 12Z" stroke-width="2"/><path d="M9 12l2 2 4-4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div><h3 style="margin:0 0 6px">Аналитика и рекомендации</h3><p style="margin:0;color:var(--muted)">Постоянный рост показателей и развитие канала.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- результаты -->
+    <section id="experience">
+      <h2>Наши результаты говорят сами за себя</h2>
+      <div class="pills">
+        <a class="pill" href="https://www.youtube.com/@velesevich13/videos" target="_blank" rel="noopener noreferrer" aria-label="Ссылка на мой канал на YouTube">
+          Ссылка на мой канал →
+        </a>
+      </div>
+
+      <div class="yt-grid">
+        <!-- 1 -->
+        <a class="yt-card" href="https://youtu.be/0LBu0Jx-FIM?si=U1GJQcEWT50E_fmm" target="_blank" rel="noopener">
+          <div class="yt-thumb">
+            <img src="https://img.youtube.com/vi/0LBu0Jx-FIM/maxresdefault.jpg" alt="Вся правда про відкриття бізнесу в Польщі..." loading="lazy">
+            <span class="yt-duration">40:02</span>
+          </div>
+          <div class="yt-title">Вся правда про відкриття бізнесу в Польщі та ставлення поляків...</div>
+          <div class="yt-meta">105&nbsp;тыс. просмотров · 3&nbsp;месяца назад</div>
+        </a>
+
+        <!-- 2 -->
+        <a class="yt-card" href="https://youtu.be/JkOLGK0W3rc?si=5zm8fIn27C68GnNi" target="_blank" rel="noopener">
+          <div class="yt-thumb">
+            <img src="https://img.youtube.com/vi/JkOLGK0W3rc/maxresdefault.jpg" alt="Чому НАШІ тікають з Іспанії у 2025 році?" loading="lazy">
+            <span class="yt-duration">39:02</span>
+          </div>
+          <div class="yt-title">Чому НАШІ тікають з Іспанії у 2025 році? Життя, про яке мовчать</div>
+          <div class="yt-meta">38&nbsp;тыс. просмотров · 4&nbsp;недели назад</div>
+        </a>
+
+        <!-- 3 -->
+        <a class="yt-card" href="https://youtu.be/AJuFUbaaAEY?si=e-asQnfV9Vd5Fat-" target="_blank" rel="noopener">
+          <div class="yt-thumb">
+            <img src="https://img.youtube.com/vi/AJuFUbaaAEY/maxresdefault.jpg" alt="Я вернулась в Польшу после жизни в США" loading="lazy">
+            <span class="yt-duration">39:26</span>
+          </div>
+          <div class="yt-title">Я вернулась в Польшу после жизни в США. Вот почему</div>
+          <div class="yt-meta">43&nbsp;тыс. просмотров · 3&nbsp;месяца назад</div>
+        </a>
+
+        <!-- 4 -->
+        <a class="yt-card" href="https://youtu.be/oqcjYNrjp1g?si=gzYto4F5DXZJ3Pw_" target="_blank" rel="noopener">
+          <div class="yt-thumb">
+            <img src="https://img.youtube.com/vi/oqcjYNrjp1g/maxresdefault.jpg" alt="РЕАЛЬНАЯ СТОИМОСТЬ жизни в Польше! Наши траты за месяц" loading="lazy">
+            <span class="yt-duration">11:34</span>
+          </div>
+          <div class="yt-title">РЕАЛЬНАЯ СТОИМОСТЬ жизни в Польше! Наши траты за месяц</div>
+          <div class="yt-meta">43&nbsp;тыс. просмотров · 10&nbsp;месяцев назад</div>
+        </a>
+
+        <!-- 5 -->
+        <a class="yt-card" href="https://youtu.be/VD-TOpCrq7Q?si=2cCP_aHOVSaKGT-c" target="_blank" rel="noopener">
+          <div class="yt-thumb">
+            <img src="https://img.youtube.com/vi/VD-TOpCrq7Q/maxresdefault.jpg" alt="Майами: пляжи, круизы, пина колада" loading="lazy">
+          </div>
+          <div class="yt-title">Майами: пляжи, круизы, пина колада, интервью с моряком</div>
+          <div class="yt-meta">26&nbsp;тыс. просмотров · 1&nbsp;год назад</div>
+        </a>
+
+        <!-- 6 -->
+        <a class="yt-card" href="https://youtu.be/Rk-lnx8ihHw?si=5UlVmJ2TM-afYQmv" target="_blank" rel="noopener">
+          <div class="yt-thumb">
+            <img src="https://img.youtube.com/vi/Rk-lnx8ihHw/maxresdefault.jpg" alt="Лучшая страна в Европе для жизни" loading="lazy">
+          </div>
+          <div class="yt-title">Лучшая страна в Европе: сравнили Германию, Польшу и Чехию</div>
+          <div class="yt-meta">31&nbsp;тыс. просмотров · 2&nbsp;года назад</div>
+        </a>
+      </div>
+
+      <p style="margin-top:10px;color:var(--muted)">Покажу дополнительные кейсы и цифры по запросу.</p>
+    </section>
+
+    <!-- контакт -->
+    <section id="contact">
+      <h2>Оставить заявку</h2>
+      <div class="card">
+        <p style="margin-top:0;color:var(--muted)">Самый быстрый способ связаться — Telegram. Нажмите кнопку ниже, чтобы <strong>забронировать консультацию</strong>.</p>
+        <div class="actions" style="margin-bottom:14px;flex-wrap:wrap">
+          <a class="btn tg" id="tg-btn" href="https://t.me/NataliaVesss" target="_blank" rel="noopener noreferrer" aria-label="Забронировать консультацию в Telegram">▶️ <span>Забронировать консультацию</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;flex-direction:column;gap:10px">
+      <!-- Статистика -->
+      <div class="stats" id="stats">
+        <div class="stat">👁️ Просмотры сайта: <b id="stat-views">0</b></div>
+        <div class="stat">✈️ Переходы в Telegram: <b id="stat-tg">0</b></div>
+      </div>
+
+      <!-- copy -->
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <span>© <span id="year"></span> Velesevich Media Group</span>
+        <span>Сделано Velesevich Media Group · ♥︎ ванильный JS</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // год
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // анимации секций
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('reveal'); observer.unobserve(e.target); }})
+    },{threshold:.2});
+    document.querySelectorAll('section').forEach(s=>observer.observe(s));
+
+    // подсветка активного пункта меню
+    const sections = Array.from(document.querySelectorAll('main section[id]'));
+    const linkMap = new Map(Array.from(document.querySelectorAll('.links a')).map(a=>[a.getAttribute('href').slice(1), a]));
+    const navObs = new IntersectionObserver((entries)=>{
+      entries.forEach(({isIntersecting, target})=>{
+        if(isIntersecting){
+          linkMap.forEach(a=>a.removeAttribute('aria-current'));
+          const link = linkMap.get(target.id);
+          if(link) link.setAttribute('aria-current','page');
+        }
+      })
+    }, {rootMargin:'-40% 0px -55% 0px'});
+    sections.forEach(s=>navObs.observe(s));
+
+    /* ===== Stats (локальные) ===== */
+    const LS_VIEWS = 'vmg_site_views';
+    const LS_TG = 'vmg_tg_clicks';
+    const SS_VISITED = 'vmg_session_counted';
+
+    function readNum(key){ return parseInt(localStorage.getItem(key) || '0', 10); }
+    function writeNum(key, val){ localStorage.setItem(key, String(val)); }
+
+    // +1 просмотр (раз за вкладку)
+    if(!sessionStorage.getItem(SS_VISITED)){
+      writeNum(LS_VIEWS, readNum(LS_VIEWS) + 1);
+      sessionStorage.setItem(SS_VISITED, '1');
+
+      // если подключите GA4, раскомментируйте:
+      // window.gtag && gtag('event','page_view_custom',{page_title:document.title});
+    }
+
+    // обработчики кликов по Telegram
+    function bumpTg(){
+      writeNum(LS_TG, readNum(LS_TG) + 1);
+      // GA4 event (если подключен gtag)
+      // window.gtag && gtag('event','tg_click',{location:'button'});
+      renderStats();
+    }
+    document.getElementById('tg-btn')?.addEventListener('click', bumpTg);
+    document.querySelector('.floating-cta')?.addEventListener('click', bumpTg);
+
+    function renderStats(){
+      document.getElementById('stat-views').textContent = readNum(LS_VIEWS).toLocaleString('ru-RU');
+      document.getElementById('stat-tg').textContent = readNum(LS_TG).toLocaleString('ru-RU');
+    }
+    renderStats();
+  </script>
+
+  <a class="floating-cta" href="https://t.me/NataliaVesss" target="_blank" rel="noopener noreferrer">🚀 Забронировать консультацию</a>
+</body>
+</html>
