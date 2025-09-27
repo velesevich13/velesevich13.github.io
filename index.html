@@ -109,32 +109,6 @@
     .stats{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:8px}
     .stat{display:flex;gap:8px;align-items:center;background:var(--chip-bg);border:1px solid var(--chip-border);padding:8px 12px;border-radius:999px}
     .stat b{font-weight:800}
-
-    /* ===== Бургер меню ===== */
-    .burger {
-      display: none;
-      font-size: 28px;
-      background: none;
-      border: none;
-      color: var(--text);
-      cursor: pointer;
-    }
-    @media (max-width: 768px) {
-      .burger { display: block; }
-      .links {
-        display: none;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background: var(--panel);
-        flex-direction: column;
-        gap: 18px;
-        padding: 20px;
-        border-top: 1px solid var(--border);
-      }
-      .links.show { display: flex; }
-    }
   </style>
 
   <script>
@@ -164,17 +138,13 @@
           <span class="logo" aria-hidden="true">VM</span>
           <span>Velesevich Media Group</span>
         </a>
-
-        <!-- бургер -->
-        <button class="burger" id="burger-btn" aria-label="Меню">☰</button>
-
-        <div class="links" id="nav-links" role="list">
+        <div class="links" role="list">
           <a href="#skills">Услуги</a>
           <a href="#experience">Результаты</a>
           <a href="#contact">Оставить заявку</a>
         </div>
         <div class="actions">
-          <button id="theme-toggle" class="btn" onclick="toggleTheme()" aria-pressed="false" aria-label="Переключить тему">🌗 Тема</button>
+          <button id="theme-toggle" class="btn" onclick="toggleTheme()" aria-pressed="false" aria-label="Переключить тему" title="Переключить тему">🌗 Тема</button>
           <a class="btn primary" href="#contact">Связаться</a>
         </div>
       </nav>
@@ -223,4 +193,170 @@
           <div><h3 style="margin:0 0 6px">ТЗ для монтажа</h3><p style="margin:0;color:var(--muted)">Подробные, понятные инструкции для идеального видео.</p></div>
         </div>
         <div class="feature">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="lime"><path d="M3 12a9 9 0 1 0 18 0A9 9 0 0 0 3 12Z" stroke-width="2"/><path d="M9 12l2 2 4-4" stroke-width
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="lime"><path d="M3 12a9 9 0 1 0 18 0A9 9 0 0 0 3 12Z" stroke-width="2"/><path d="M9 12l2 2 4-4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div><h3 style="margin:0 0 6px">Аналитика и рекомендации</h3><p style="margin:0;color:var(--muted)">Постоянный рост показателей и развитие канала.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- результаты -->
+    <section id="experience">
+      <h2>Наши результаты говорят сами за себя</h2>
+      <div class="pills">
+        <a class="pill" href="https://www.youtube.com/@velesevich13/videos" target="_blank" rel="noopener noreferrer" aria-label="Ссылка на мой канал на YouTube">
+          Ссылка на мой канал →
+        </a>
+      </div>
+
+      <div class="yt-grid">
+        <!-- 1 -->
+        <a class="yt-card" href="https://youtu.be/0LBu0Jx-FIM?si=U1GJQcEWT50E_fmm" target="_blank" rel="noopener">
+          <div class="yt-thumb">
+            <img src="https://img.youtube.com/vi/0LBu0Jx-FIM/maxresdefault.jpg" alt="Вся правда про відкриття бізнесу в Польщі..." loading="lazy">
+            <span class="yt-duration">40:02</span>
+          </div>
+          <div class="yt-title">Вся правда про відкриття бізнесу в Польщі та ставлення поляків...</div>
+          <div class="yt-meta">105&nbsp;тыс. просмотров · 3&nbsp;месяца назад</div>
+        </a>
+
+        <!-- 2 -->
+        <a class="yt-card" href="https://youtu.be/JkOLGK0W3rc?si=5zm8fIn27C68GnNi" target="_blank" rel="noopener">
+          <div class="yt-thumb">
+            <img src="https://img.youtube.com/vi/JkOLGK0W3rc/maxresdefault.jpg" alt="Чому НАШІ тікають з Іспанії у 2025 році?" loading="lazy">
+            <span class="yt-duration">39:02</span>
+          </div>
+          <div class="yt-title">Чому НАШІ тікають з Іспанії у 2025 році? Життя, про яке мовчать</div>
+          <div class="yt-meta">38&nbsp;тыс. просмотров · 4&nbsp;недели назад</div>
+        </a>
+
+        <!-- 3 -->
+        <a class="yt-card" href="https://youtu.be/AJuFUbaaAEY?si=e-asQnfV9Vd5Fat-" target="_blank" rel="noopener">
+          <div class="yt-thumb">
+            <img src="https://img.youtube.com/vi/AJuFUbaaAEY/maxresdefault.jpg" alt="Я вернулась в Польшу после жизни в США" loading="lazy">
+            <span class="yt-duration">39:26</span>
+          </div>
+          <div class="yt-title">Я вернулась в Польшу после жизни в США. Вот почему</div>
+          <div class="yt-meta">43&nbsp;тыс. просмотров · 3&nbsp;месяца назад</div>
+        </a>
+
+        <!-- 4 -->
+        <a class="yt-card" href="https://youtu.be/oqcjYNrjp1g?si=gzYto4F5DXZJ3Pw_" target="_blank" rel="noopener">
+          <div class="yt-thumb">
+            <img src="https://img.youtube.com/vi/oqcjYNrjp1g/maxresdefault.jpg" alt="РЕАЛЬНАЯ СТОИМОСТЬ жизни в Польше! Наши траты за месяц" loading="lazy">
+            <span class="yt-duration">11:34</span>
+          </div>
+          <div class="yt-title">РЕАЛЬНАЯ СТОИМОСТЬ жизни в Польше! Наши траты за месяц</div>
+          <div class="yt-meta">43&nbsp;тыс. просмотров · 10&nbsp;месяцев назад</div>
+        </a>
+
+        <!-- 5 -->
+        <a class="yt-card" href="https://youtu.be/VD-TOpCrq7Q?si=2cCP_aHOVSaKGT-c" target="_blank" rel="noopener">
+          <div class="yt-thumb">
+            <img src="https://img.youtube.com/vi/VD-TOpCrq7Q/maxresdefault.jpg" alt="Майами: пляжи, круизы, пина колада" loading="lazy">
+          </div>
+          <div class="yt-title">Майами: пляжи, круизы, пина колада, интервью с моряком</div>
+          <div class="yt-meta">26&nbsp;тыс. просмотров · 1&nbsp;год назад</div>
+        </a>
+
+        <!-- 6 -->
+        <a class="yt-card" href="https://youtu.be/Rk-lnx8ihHw?si=5UlVmJ2TM-afYQmv" target="_blank" rel="noopener">
+          <div class="yt-thumb">
+            <img src="https://img.youtube.com/vi/Rk-lnx8ihHw/maxresdefault.jpg" alt="Лучшая страна в Европе для жизни" loading="lazy">
+          </div>
+          <div class="yt-title">Лучшая страна в Европе: сравнили Германию, Польшу и Чехию</div>
+          <div class="yt-meta">31&nbsp;тыс. просмотров · 2&nbsp;года назад</div>
+        </a>
+      </div>
+
+      <p style="margin-top:10px;color:var(--muted)">Покажу дополнительные кейсы и цифры по запросу.</p>
+    </section>
+
+    <!-- контакт -->
+    <section id="contact">
+      <h2>Оставить заявку</h2>
+      <div class="card">
+        <p style="margin-top:0;color:var(--muted)">Самый быстрый способ связаться — Telegram. Нажмите кнопку ниже, чтобы <strong>забронировать консультацию</strong>.</p>
+        <div class="actions" style="margin-bottom:14px;flex-wrap:wrap">
+          <a class="btn tg" id="tg-btn" href="https://t.me/NataliaVesss" target="_blank" rel="noopener noreferrer" aria-label="Забронировать консультацию в Telegram">▶️ <span>Забронировать консультацию</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;flex-direction:column;gap:10px">
+      <!-- Статистика -->
+      <div class="stats" id="stats">
+        <div class="stat">👁️ Просмотры сайта: <b id="stat-views">0</b></div>
+        <div class="stat">✈️ Переходы в Telegram: <b id="stat-tg">0</b></div>
+      </div>
+
+      <!-- copy -->
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <span>© <span id="year"></span> Velesevich Media Group</span>
+        <span>Сделано Velesevich Media Group · ♥︎ ванильный JS</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // год
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // анимации секций
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('reveal'); observer.unobserve(e.target); }})
+    },{threshold:.2});
+    document.querySelectorAll('section').forEach(s=>observer.observe(s));
+
+    // подсветка активного пункта меню
+    const sections = Array.from(document.querySelectorAll('main section[id]'));
+    const linkMap = new Map(Array.from(document.querySelectorAll('.links a')).map(a=>[a.getAttribute('href').slice(1), a]));
+    const navObs = new IntersectionObserver((entries)=>{
+      entries.forEach(({isIntersecting, target})=>{
+        if(isIntersecting){
+          linkMap.forEach(a=>a.removeAttribute('aria-current'));
+          const link = linkMap.get(target.id);
+          if(link) link.setAttribute('aria-current','page');
+        }
+      })
+    }, {rootMargin:'-40% 0px -55% 0px'});
+    sections.forEach(s=>navObs.observe(s));
+
+    /* ===== Stats (локальные) ===== */
+    const LS_VIEWS = 'vmg_site_views';
+    const LS_TG = 'vmg_tg_clicks';
+    const SS_VISITED = 'vmg_session_counted';
+
+    function readNum(key){ return parseInt(localStorage.getItem(key) || '0', 10); }
+    function writeNum(key, val){ localStorage.setItem(key, String(val)); }
+
+    // +1 просмотр (раз за вкладку)
+    if(!sessionStorage.getItem(SS_VISITED)){
+      writeNum(LS_VIEWS, readNum(LS_VIEWS) + 1);
+      sessionStorage.setItem(SS_VISITED, '1');
+
+      // если подключите GA4, раскомментируйте:
+      // window.gtag && gtag('event','page_view_custom',{page_title:document.title});
+    }
+
+    // обработчики кликов по Telegram
+    function bumpTg(){
+      writeNum(LS_TG, readNum(LS_TG) + 1);
+      // GA4 event (если подключен gtag)
+      // window.gtag && gtag('event','tg_click',{location:'button'});
+      renderStats();
+    }
+    document.getElementById('tg-btn')?.addEventListener('click', bumpTg);
+    document.querySelector('.floating-cta')?.addEventListener('click', bumpTg);
+
+    function renderStats(){
+      document.getElementById('stat-views').textContent = readNum(LS_VIEWS).toLocaleString('ru-RU');
+      document.getElementById('stat-tg').textContent = readNum(LS_TG).toLocaleString('ru-RU');
+    }
+    renderStats();
+  </script>
+
+  <a class="floating-cta" href="https://t.me/NataliaVesss" target="_blank" rel="noopener noreferrer">🚀 Забронировать консультацию</a>
+</body>
+</html>
